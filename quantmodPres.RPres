@@ -1,0 +1,76 @@
+
+R quantmod Demonstration App
+========================================================
+author: Rich Harken
+date: 12/28/2015
+transition: rotate
+css: customPres.css
+
+
+The Problem
+========================================================
+incremental: true
+
+In taking the Coursera Course: Developing Data Products - The class project has the following requirements:
+
+1. Write a shiny application with associated supporting documentation. The documentation should be thought of as whatever a user will need to get started using your application.
+2. Deploy the application on Rstudio's shiny server
+3. Share the application link by pasting it into the text box below
+4. Share your server.R and ui.R code on github
+
+# <span style="font-weight:bold; color:red;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;What to do?</span>
+
+
+
+The Solution
+========================================================
+incremental: true
+
+In a previous class in this specialization - I learned about a fun little package called 'quantmod'.
+
+It is a package to work with stock market information in an easy to use way.  It also has a number of options that drive what analysis occurs when looking at certain stock information.
+
+I thought:
+* Why not create an app that demonstrates the capabilities of this package
+* Learn more about Shiny, Slidify, and the quantmod package all at the same time
+* Create an app that might be fun to use and play with as well...
+
+
+Quantmod
+========================================================
+
+So here's how easy quantmod is to work with.  In the R quantmod package, the following code:
+```{r, echo=FALSE}
+library(quantmod)
+```
+
+```{r, eval=FALSE}
+library(quantmod)
+getSymbols("^DJI", from=Sys.Date()-90, to=Sys.Date())
+chartSeries(DJI, theme=chartTheme("beige"))
+```
+
+```{r, echo=FALSE, results="hide"}
+suppressWarnings(getSymbols("^DJI", from=Sys.Date()-90, to=Sys.Date()))
+```
+
+Produces a nice detailed graph like this:
+```{r, echo=FALSE, fig.width=16 }
+chartSeries(DJI, theme=chartTheme("beige"))
+```
+
+
+The Project
+========================================================
+
+The final version of my project allows you to:
+
+* Enter whatever stock you want to analyze
+* Choose your own date ranges to look at
+* Choose different themes for the chart display
+* Overlay many of the available analysis options for the graph
+* Play with many of the available options interactivly and get feedback immediately
+
+You can run the demo at <a href="https://rharken.shinyapps.io/ShinyDemo">https://rharken.shinyapps.io/ShinyDemo</a>
+
+# <span style="font-weight:bold; color:green;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Have Fun with it!</span>
